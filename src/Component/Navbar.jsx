@@ -34,24 +34,7 @@ const Navbar = () => {
           <a href="/service" className="hover:text-orange-500">Our Services</a>
 
           {/* Dropdown */}
-          <div className="relative">
-            <button
-              onClick={() => setDropdown(!dropdown)}
-              className="flex items-center gap-1 hover:text-orange-500"
-            >
-              Pages <IoChevronDown size={14} />
-            </button>
-
-            {dropdown && (
-              <div className="absolute top-10 left-0 bg-white shadow rounded w-40">
-                <a href="/feature" className="block px-4 py-2 hover:bg-gray-100">Features</a>
-                <a href="/quote" className="block px-4 py-2 hover:bg-gray-100">Free Quote</a>
-                <a href="/team" className="block px-4 py-2 hover:bg-gray-100">Our Team</a>
-                <a href="/testimonial" className="block px-4 py-2 hover:bg-gray-100">Testimonial</a>
-                <a href="/404" className="block px-4 py-2 hover:bg-gray-100">404 Page</a>
-              </div>
-            )}
-          </div>
+         
 
           <a href="/contact" className="hover:text-orange-500">Contact Us</a>
         </div>
