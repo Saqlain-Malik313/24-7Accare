@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Services from "../Component/Services";
+import Acpage from "./AcPage"
 
 const Ourservice = () => {
     return (
@@ -45,7 +46,9 @@ const Ourservice = () => {
 
                 </div>
             </div>
-            <Services/>
+            {/* <Services/> */}
+            <Acpage/>
+            
         </>
     );
 };
