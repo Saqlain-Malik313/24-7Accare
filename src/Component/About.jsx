@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
 const About = () => {
+  const [open, setOpen] = useState(false);
+  const phoneNumber = "9971507454";
+
   return (
     <div className="py-16 bg-white overflow-hidden">
       <div className="w-full px-4 sm:px-6 lg:px-16">
@@ -36,26 +39,60 @@ const About = () => {
             </p>
 
             <div className="border-t pt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-orange-500 rounded-full text-white">
-                  <FaPhoneAlt />
+
+              {/* 📞 PHONE WITH DROPDOWN */}
+              <div className="relative">
+                <div
+                  onClick={() => setOpen(!open)}
+                  className="flex items-center gap-3 cursor-pointer"
+                >
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-orange-500 rounded-full text-white">
+                    <FaPhoneAlt />
+                  </div>
+                  <h5 className="font-semibold text-sm sm:text-base">
+                    {phoneNumber}
+                  </h5>
                 </div>
-                <h5 className="font-semibold text-sm sm:text-base">9971507454</h5>
+
+                {open && (
+                  <div className="absolute mt-2 w-44 bg-white shadow-xl rounded-lg p-2 z-50 border">
+                    
+                    <a
+                      href={`tel:${phoneNumber}`}
+                      className="flex items-center gap-2 p-2 hover:bg-gray-100 rounded"
+                    >
+                      <FaPhoneAlt /> Call Now
+                    </a>
+
+                    <a
+                      href={`https://wa.me/91${phoneNumber}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 p-2 hover:bg-gray-100 rounded"
+                    >
+                      <FaWhatsapp /> WhatsApp
+                    </a>
+
+                  </div>
+                )}
               </div>
 
+              {/* 📧 EMAIL */}
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-orange-500 rounded-full text-white">
                   <FaEnvelope />
                 </div>
-                <h5 className="font-semibold text-sm sm:text-base">danish.malik.7503@gmail. Com</h5>
+                <h5 className="font-semibold text-sm sm:text-base">
+                  danish.malik.7503@gmail.com
+                </h5>
               </div>
+
             </div>
           </motion.div>
 
           {/* RIGHT IMAGES */}
           <div className="grid grid-cols-2 gap-3">
-
-            {[ 
+            {[
               "about-1.jpg",
               "about-2.jpg",
               "about-3.jpg",
@@ -70,7 +107,6 @@ const About = () => {
                 viewport={{ once: true }}
               />
             ))}
-
           </div>
 
         </div>
