@@ -8,8 +8,12 @@ import {
   FaYoutube,
   FaLinkedinIn,
 } from "react-icons/fa";
+import { useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
+  const [open, setOpen] = useState(false);
+  const phoneNumber = "9971507454";
   return (
     <footer className="bg-[#001a4d] text-gray-300 w-full mt-16 pt-16">
 
@@ -60,10 +64,36 @@ const Footer = () => {
               <FaMapMarkerAlt /> 123 Street, New York, USA
             </p>
 
-            <p className="flex items-center gap-3 mb-3 text-sm">
-              <FaPhoneAlt /> 99715074540
-            </p>
+            <div className="relative mb-3 text-sm">
+              <button
+                onClick={() => setOpen(!open)}
+                className="flex items-center gap-3 w-full text-left"
+              >
+                <FaPhoneAlt /> {phoneNumber}
+              </button>
 
+              {open && (
+                <div className="absolute mt-2 w-40 bg-white text-black shadow-lg rounded-lg p-2 z-50">
+
+                  <a
+                    href={`tel:${phoneNumber}`}
+                    className="flex items-center gap-2 p-2 hover:bg-gray-100 rounded"
+                  >
+                    <FaPhoneAlt /> Call
+                  </a>
+
+                  <a
+                    href={`https://wa.me/91${phoneNumber}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 p-2 hover:bg-gray-100 rounded"
+                  >
+                    <FaWhatsapp /> WhatsApp
+                  </a>
+
+                </div>
+              )}
+            </div>
             <p className="flex items-center gap-3 text-sm">
               <FaEnvelope /> danish.malik.7503@gmail. Com
             </p>
@@ -110,9 +140,6 @@ const Footer = () => {
               </a>
               <a href="/service" className="hover:text-orange-500 transition">
                 › Our Services
-              </a>
-              <a href="#" className="hover:text-orange-500 transition">
-                › Terms & Condition
               </a>
             </div>
           </div>
