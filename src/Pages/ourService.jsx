@@ -27,7 +27,7 @@ const Ourservice = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        About Us
+                        Services
                     </motion.h1>
 
                     {/* Breadcrumb */}
