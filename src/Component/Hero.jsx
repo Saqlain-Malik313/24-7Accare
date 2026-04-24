@@ -4,18 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 const slides = [
   {
     img: "https://themewagon.github.io/aircon/img/carousel-1.jpg",
-    title: "Quality Heating & Air Condition Services",
-    desc: "Aliqu diam amet diam et eos. Clita erat ipsum et lorem sed stet lorem sit clita duo justo erat amet",
+    title: "Quality Heating & Air Conditioning Services",
+    desc: "We provide reliable heating and AC solutions with expert technicians and top-quality service.",
   },
   {
     img: "https://themewagon.github.io/aircon/img/carousel-2.jpg",
-    title: "We Provide Best AC Repair Services",
-    desc: "Professional AC repair and maintenance services with trusted experts",
-  },
-  {
-    img: "https://themewagon.github.io/aircon/img/carousel-3.jpg",
-    title: "Reliable Cooling Solutions",
-    desc: "Stay cool with our efficient and affordable cooling services",
+    title: "Best AC Repair Services",
+    desc: "Professional AC repair and maintenance services delivered by trusted and experienced experts.",
   },
 ];
 
@@ -81,16 +76,6 @@ const HeroSlider = () => {
               >
                 {slides[index].desc}
               </motion.p>
-
-              <motion.a
-                href="#"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 font-medium"
-              >
-                Explore More
-              </motion.a>
 
             </div>
           </div>
