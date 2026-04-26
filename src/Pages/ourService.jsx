@@ -32,7 +32,7 @@ const Ourservice = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        About Us
+                        Services
                     </motion.h1>
 
                     {/* Breadcrumb */}
