@@ -74,13 +74,13 @@ export default function ServicePage() {
         {
             title: "AC Service",
             desc: "Complete cleaning, jet wash & maintenance",
-            price: "Starting ₹399",
+            price: "Starting ₹499",
             img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ25PuE7LRlEF9b9wcDUGSXU2xfdbAa0goKzg&s",
         },
         {
             title: "AC Installation",
             desc: "Split & Window AC installation with warranty",
-            price: "Starting ₹999",
+            price: "Starting ₹599 to ₹1199 ",
             img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3EEwKuAiLISXcELrSulIrGyl3nd3-Xh5sUw&s",
         },
         {
