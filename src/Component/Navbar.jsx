@@ -1,22 +1,18 @@
 import React, { useState } from "react";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedinIn,
-  FaInstagram,
-  FaBars,
-  FaTimes,
-} from "react-icons/fa";
+import { FaBars, FaTimes, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { IoChevronDown } from "react-icons/io5";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
 
+  const phone = "9971507454";
+  const email = "danish.malik.7503@gmail.com";
+
   return (
     <nav className="bg-white border-b relative z-50">
       <div className="flex items-center justify-between px-6 py-3">
-        
+
         {/* Logo */}
         <div className="flex items-center space-x-3">
           <img
@@ -56,16 +52,27 @@ const Navbar = () => {
           <a href="/contact" className="hover:text-orange-500">Contact Us</a>
         </div>
 
-        {/* Social Icons */}
-        <div className="hidden lg:flex items-center space-x-3">
-          {[FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram].map((Icon, i) => (
-            <a
-              key={i}
-              className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 text-orange-500 hover:bg-orange-500 hover:text-white transition"
-            >
-              <Icon size={14} />
-            </a>
-          ))}
+        {/* ✅ PHONE + EMAIL (REPLACED SOCIAL ICONS) */}
+        <div className="hidden lg:flex items-center space-x-5 text-sm">
+
+          {/* Phone */}
+          <a
+            href={`tel:${phone}`}
+            className="flex items-center gap-2 text-gray-700 hover:text-orange-500"
+          >
+            <FaPhoneAlt />
+            {phone}
+          </a>
+
+          {/* Email */}
+          <a
+            href={`mailto:${email}`}
+            className="flex items-center gap-2 text-gray-700 hover:text-orange-500"
+          >
+            <FaEnvelope />
+            {email}
+          </a>
+
         </div>
 
         {/* Mobile Menu Button */}
@@ -118,6 +125,16 @@ const Navbar = () => {
           </div>
 
           <a href="/contact" onClick={() => setMobileMenu(false)}>Contact Us</a>
+
+          {/* ✅ Mobile me bhi phone + email */}
+          <div className="pt-4 border-t space-y-3 text-sm">
+            <a href={`tel:${phone}`} className="flex items-center gap-2">
+              <FaPhoneAlt /> {phone}
+            </a>
+            <a href={`mailto:${email}`} className="flex items-center gap-2">
+              <FaEnvelope /> {email}
+            </a>
+          </div>
         </div>
       </div>
 
