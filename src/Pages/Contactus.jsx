@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
@@ -6,22 +6,27 @@ import emailjs from "@emailjs/browser";
 const Contactus = () => {
 
   const form = useRef();
+  const [status, setStatus] = useState(null); // success | error
 
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs.sendForm(
-      "service_uc7qbp9",     // 🔴 yaha apna service id
-      "template_oyh2pk9",    // 🔴 yaha template id
+      "service_uc7qbp9",
+      "template_oyh2pk9",
       form.current,
-      "0pxXW0g4SYrDQDEx5"      // 🔴 yaha public key
+      "0pxXW0g4SYrDQDEx5"
     )
     .then(() => {
-      alert("Message sent successfully ✅");
+      setStatus("success");
       form.current.reset();
+
+      setTimeout(() => setStatus(null), 3000);
     })
     .catch(() => {
-      alert("Failed to send ❌");
+      setStatus("error");
+
+      setTimeout(() => setStatus(null), 3000);
     });
   };
 
@@ -44,11 +49,18 @@ const Contactus = () => {
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4"
             initial={{ opacity: 0, y: -40 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
             Contact Us
           </motion.h1>
 
-          <motion.div className="flex justify-center gap-2 text-gray-200">
+          <motion.div
+            className="flex justify-center gap-2 text-gray-200"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
             <Link to="/" className="hover:text-orange-500">Home</Link>
             <span>/</span>
             <span className="text-orange-500">Contact</span>
@@ -90,13 +102,24 @@ const Contactus = () => {
                 />
               </div>
 
-              <input
-                type="text"
-                name="subject"
-                placeholder="Subject"
-                className="w-full border border-gray-300 px-4 py-3 outline-none focus:border-orange-500"
-                required
-              />
+              {/* 📞 Mobile + Service */}
+              <div className="grid md:grid-cols-2 gap-4">
+                <input
+                  type="tel"
+                  name="user_mobile"
+                  placeholder="Your Mobile"
+                  className="w-full border border-gray-300 px-4 py-3 outline-none focus:border-orange-500"
+                  required
+                />
+
+                <input
+                  type="text"
+                  name="service"
+                  placeholder="Service (AC Repair, Installation...)"
+                  className="w-full border border-gray-300 px-4 py-3 outline-none focus:border-orange-500"
+                  required
+                />
+              </div>
 
               <textarea
                 rows="5"
@@ -127,6 +150,20 @@ const Contactus = () => {
 
         </div>
       </div>
+
+      {/* 🔥 Toast Popup */}
+      {status && (
+        <div className="fixed top-5 right-5 z-50">
+          <div
+            className={`px-6 py-3 rounded-lg shadow-lg text-white font-medium transition-all duration-300
+              ${status === "success" ? "bg-green-500" : "bg-red-500"}`}
+          >
+            {status === "success"
+              ? "Message sent successfully ✅"
+              : "Failed to send ❌"}
+          </div>
+        </div>
+      )}
     </>
   );
 };
