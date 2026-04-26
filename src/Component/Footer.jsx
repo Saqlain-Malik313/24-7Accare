@@ -44,7 +44,7 @@ const Footer = () => {
               Subscribe to get latest offers on AC repair, servicing, and maintenance.
             </p>
 
-            <div className="relative">
+            {/* <div className="relative">
               <input
                 type="text"
                 placeholder="Enter your email"
@@ -53,7 +53,7 @@ const Footer = () => {
               <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-orange-500 hover:bg-orange-600 px-4 py-2 text-white text-sm">
                 Sign Up
               </button>
-            </div>
+            </div> */}
           </div>
 
           {/* CONTACT */}
