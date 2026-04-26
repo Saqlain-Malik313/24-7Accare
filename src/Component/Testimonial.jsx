@@ -4,22 +4,28 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const testimonials = [
   {
-    img: "https://themewagon.github.io/aircon/img/testimonial-1.jpg",
-    text: "Dolores sed duo clita tempor justo dolor et stet lorem kasd labore dolore lorem ipsum.",
-    name: "Client Name",
-    role: "Profession",
+    img: "https://themewagon.github.io/aircon/img/testimonial-2.jpg",
+    text: "Expert AC ki service bahut fast thi. Technician time par aaya aur mera AC sirf 30 minutes me repair ho gaya. Highly recommended!",
+    name: "Rohit Bisht",
+    role: "Rudrapur, Uttarakhand",
   },
   {
-    img: "https://themewagon.github.io/aircon/img/testimonial-2.jpg",
-    text: "At lorem lorem magna ut et, nonumy et labore et tempor diam tempor erat.",
-    name: "Client Name",
-    role: "Profession",
+    img: "https://themewagon.github.io/aircon/img/testimonial-1.jpg",
+    text: "Maine Expert AC se gas filling karwayi thi, ab cooling bilkul new jaisi ho gayi. Price bhi reasonable tha 👍",
+    name: "Pooja Rawat",
+    role: "Kichha, Uttarakhand",
   },
   {
     img: "https://themewagon.github.io/aircon/img/testimonial-3.jpg",
-    text: "Nonumy et labore et tempor diam tempor erat lorem ipsum dolor sit amet.",
-    name: "Client Name",
-    role: "Profession",
+    text: "Raat me AC kharab hua tha, Expert AC ne turant service di. 24/7 support sach me kaam ka hai. Bahut professional team hai.",
+    name: "Amit Joshi",
+    role: "Sitarganj, Uttarakhand",
+  },
+  {
+    img: "https://themewagon.github.io/aircon/img/testimonial-1.jpg",
+    text: "Expert AC ki installation service smooth thi. Proper fitting aur clean work kiya. Definitely dubara service lunga.",
+    name: "Neha Pant",
+    role: "Rudrapur, Uttarakhand",
   },
 ];
 
@@ -39,7 +45,7 @@ const Testimonial = () => {
 
   return (
     <div className="py-20 bg-gray-100 text-center relative overflow-hidden">
-      
+
       {/* Heading */}
       <h1 className="text-3xl md:text-4xl font-bold text-[#0b1c39] mb-12">
         What They Say About Our Services
