@@ -1,118 +1,188 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import React from "react";
+import {
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaTwitter,
+  FaFacebookF,
+  FaYoutube,
+  FaLinkedinIn,
+} from "react-icons/fa";
+import { useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
 
-const testimonials = [
-  {
-    img: "https://themewagon.github.io/aircon/img/testimonial-2.jpg",
-    text: "Expert AC ki service bahut fast thi. Technician time par aaya aur mera AC sirf 30 minutes me repair ho gaya. Highly recommended!",
-    name: "Rohit Bisht",
-    role: "Rudrapur, Uttarakhand",
-  },
-  {
-    img: "https://themewagon.github.io/aircon/img/testimonial-1.jpg",
-    text: "Maine Expert AC se gas filling karwayi thi, ab cooling bilkul new jaisi ho gayi. Price bhi reasonable tha 👍",
-    name: "Pooja Rawat",
-    role: "Kichha, Uttarakhand",
-  },
-  {
-    img: "https://themewagon.github.io/aircon/img/testimonial-3.jpg",
-    text: "Raat me AC kharab hua tha, Expert AC ne turant service di. 24/7 support sach me kaam ka hai. Bahut professional team hai.",
-    name: "Amit Joshi",
-    role: "Sitarganj, Uttarakhand",
-  },
-  {
-    img: "https://themewagon.github.io/aircon/img/testimonial-1.jpg",
-    text: "Expert AC ki installation service smooth thi. Proper fitting aur clean work kiya. Definitely dubara service lunga.",
-    name: "Neha Pant",
-    role: "Rudrapur, Uttarakhand",
-  },
-];
-
-const Testimonial = () => {
-  const [index, setIndex] = useState(0);
-
-  // Auto Slide
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % testimonials.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const next = () => setIndex((prev) => (prev + 1) % testimonials.length);
-  const prev = () => setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+const Footer = () => {
+  const [open, setOpen] = useState(false);
+  const phoneNumber = "9971507454";
 
   return (
-    <div className="py-20 bg-gray-100 text-center relative overflow-hidden">
+    <footer className="bg-[#001a4d] text-gray-300 w-full mt-16 pt-16">
 
-      {/* Heading */}
-      <h1 className="text-3xl md:text-4xl font-bold text-[#0b1c39] mb-12">
-        What They Say About Our Services
-      </h1>
+      {/* MAIN CONTENT */}
+      <div className="w-full px-6 sm:px-10 lg:px-16 pb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
 
-      {/* SIDE FLOATING IMAGES */}
-      <div className="hidden lg:block">
-        {/* Left */}
-        <img src="https://themewagon.github.io/aircon/img/testimonial-1.jpg" className="w-16 h-16 rounded-full absolute left-20 top-40 animate-pulse" />
-        <img src="https://themewagon.github.io/aircon/img/testimonial-2.jpg" className="w-12 h-12 rounded-full absolute left-10 bottom-40 animate-pulse" />
-        <img src="https://themewagon.github.io/aircon/img/testimonial-3.jpg" className="w-14 h-14 rounded-full absolute left-32 bottom-20 animate-pulse" />
+          {/* LOGO + ABOUT */}
+          <div>
+            <h1 className="text-white text-2xl font-bold mb-4 flex items-center gap-2">
+              <img src="/img/icon/icon-02-light.png" className="w-8" alt="" />
+              Expert-AC Care
+            </h1>
+            <p className="text-sm leading-relaxed">
+              We provide reliable and affordable AC repair, installation, and maintenance services.
+              Our expert technicians are available 24/7 to keep your home and office cool and comfortable.
+              Fast service, genuine parts, and 100% customer satisfaction guaranteed.
+            </p>
+          </div>
 
-        {/* Right */}
-        <img src="https://themewagon.github.io/aircon/img/testimonial-1.jpg" className="w-16 h-16 rounded-full absolute right-20 top-40 animate-pulse" />
-        <img src="https://themewagon.github.io/aircon/img/testimonial-2.jpg" className="w-12 h-12 rounded-full absolute right-10 bottom-40 animate-pulse" />
-        <img src="https://themewagon.github.io/aircon/img/testimonial-3.jpg" className="w-14 h-14 rounded-full absolute right-32 bottom-20 animate-pulse" />
-      </div>
-
-      {/* CENTER SLIDER */}
-      <div className="max-w-2xl mx-auto relative">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <img
-              src={testimonials[index].img}
-              className="w-20 h-20 rounded-full mx-auto mb-6"
-              alt=""
-            />
-
-            <p className="text-gray-600 text-lg mb-4 px-4">
-              {testimonials[index].text}
+          {/* NEWSLETTER */}
+          <div>
+            <h5 className="text-white text-lg font-semibold mb-4">
+              Newsletter
+            </h5>
+            <p className="text-sm mb-4">
+              Subscribe to get latest offers on AC repair, servicing, and maintenance.
             </p>
 
-            <h5 className="font-semibold text-lg">
-              {testimonials[index].name}
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Enter your email"
+                className="w-full bg-transparent border border-gray-500 px-4 py-3 pr-24 text-white placeholder-gray-400 outline-none focus:border-orange-500"
+              />
+              <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-orange-500 hover:bg-orange-600 px-4 py-2 text-white text-sm">
+                Sign Up
+              </button>
+            </div>
+          </div>
+
+          {/* CONTACT */}
+          <div>
+            <h5 className="text-white text-lg font-semibold mb-4">
+              Get In Touch
             </h5>
-            <span className="text-gray-500">
-              {testimonials[index].role}
-            </span>
-          </motion.div>
-        </AnimatePresence>
 
-        {/* Arrows */}
-        <div className="flex justify-center gap-4 mt-6">
-          <button
-            onClick={prev}
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-orange-500 text-white"
-          >
-            <FaChevronLeft />
-          </button>
+            <p className="flex items-center gap-3 mb-3 text-sm">
+              <FaMapMarkerAlt /> Rudrapur, Udham Singh Nagar, Uttarakhand
+            </p>
+            <div className="relative mb-3 text-sm">
+              <button
+                onClick={() => setOpen(!open)}
+                className="flex items-center gap-3 w-full text-left"
+              >
+                <FaPhoneAlt /> {phoneNumber}
+              </button>
 
-          <button
-            onClick={next}
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-orange-500 text-white"
-          >
-            <FaChevronRight />
-          </button>
+              {open && (
+                <div className="absolute mt-2 w-40 bg-white text-black shadow-lg rounded-lg p-2 z-50">
+
+                  <a
+                    href={`tel:${phoneNumber}`}
+                    className="flex items-center gap-2 p-2 hover:bg-gray-100 rounded"
+                  >
+                    <FaPhoneAlt /> Call Now
+                  </a>
+
+                  <a
+                    href={`https://wa.me/91${phoneNumber}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 p-2 hover:bg-gray-100 rounded"
+                  >
+                    <FaWhatsapp /> WhatsApp
+                  </a>
+
+                </div>
+              )}
+            </div>
+
+            <p className="flex items-center gap-3 text-sm">
+              <FaEnvelope /> danish.malik.7503@gmail.com
+            </p>
+          </div>
+
+          {/* SERVICES */}
+          <div>
+            <h5 className="text-white text-lg font-semibold mb-4">
+              Our Services
+            </h5>
+
+            <div className="flex flex-col gap-2 text-sm">
+              <a href="#" className="hover:text-orange-500 transition">
+                › AC Repair & Service
+              </a>
+              <a href="#" className="hover:text-orange-500 transition">
+                › AC Installation
+              </a>
+              <a href="#" className="hover:text-orange-500 transition">
+                › Gas Filling & Leak Fix
+              </a>
+              <a href="#" className="hover:text-orange-500 transition">
+                › Annual Maintenance (AMC)
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* SECOND ROW */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mt-10">
+
+          {/* QUICK LINKS */}
+          <div>
+            <h5 className="text-white text-lg font-semibold mb-4">
+              Quick Links
+            </h5>
+
+            <div className="flex flex-col gap-2 text-sm">
+              <a href="/about" className="hover:text-orange-500 transition">
+                › About Us
+              </a>
+              <a href="/contact" className="hover:text-orange-500 transition">
+                › Contact Us
+              </a>
+              <a href="/service" className="hover:text-orange-500 transition">
+                › Our Services
+              </a>
+            </div>
+          </div>
+
+          {/* EMPTY SPACE */}
+          <div></div>
+
+          {/* SOCIAL */}
+          <div>
+            <h5 className="text-white text-lg font-semibold mb-4">
+              Follow Us
+            </h5>
+
+            <div className="flex gap-3">
+              {[FaTwitter, FaFacebookF, FaYoutube, FaLinkedinIn].map(
+                (Icon, i) => (
+                  <a
+                    key={i}
+                    href="#"
+                    className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-500 hover:bg-orange-500 hover:border-orange-500 transition"
+                  >
+                    <Icon />
+                  </a>
+                )
+              )}
+            </div>
+          </div>
         </div>
       </div>
 
-    </div>
+      {/* COPYRIGHT */}
+      <div className="border-t border-gray-700 py-4">
+        <div className="w-full px-6 sm:px-10 lg:px-16 flex justify-center items-center text-sm text-center">
+          <p>
+            © {new Date().getFullYear()}{" "}
+            <span className="text-orange-500">Expert-AC Care Services</span>, All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
   );
 };
 
-export default Testimonial;
+export default Footer;
