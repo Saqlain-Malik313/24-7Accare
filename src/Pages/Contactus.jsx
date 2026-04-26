@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 
 const Contactus = () => {
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "service_uc7qbp9",     // 🔴 yaha apna service id
+      "template_oyh2pk9",    // 🔴 yaha template id
+      form.current,
+      "0pxXW0g4SYrDQDEx5"      // 🔴 yaha public key
+    )
+    .then(() => {
+      alert("Message sent successfully ✅");
+      form.current.reset();
+    })
+    .catch(() => {
+      alert("Failed to send ❌");
+    });
+  };
+
   return (
     <>
       {/* 🔥 Hero Section */}
@@ -45,49 +67,45 @@ const Contactus = () => {
               If You Have Any Query, Please Contact Us
             </h2>
 
-            <p className="text-gray-500 mb-6 leading-relaxed">
-              The contact form is currently inactive. Get a functional and
-              working contact form with Ajax & PHP in a few minutes. Just copy
-              and paste the files, add a little code and you're done.
-              <span className="text-orange-500 font-medium"> Download Now.</span>
-            </p>
-
             <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                alert("Message sent!");
-              }}
+              ref={form}
+              onSubmit={sendEmail}
               className="space-y-4"
             >
-              {/* Name + Email */}
+
               <div className="grid md:grid-cols-2 gap-4">
                 <input
                   type="text"
+                  name="user_name"
                   placeholder="Your Name"
                   className="w-full border border-gray-300 px-4 py-3 outline-none focus:border-orange-500"
+                  required
                 />
                 <input
                   type="email"
+                  name="user_email"
                   placeholder="Your Email"
                   className="w-full border border-gray-300 px-4 py-3 outline-none focus:border-orange-500"
+                  required
                 />
               </div>
 
-              {/* Subject */}
               <input
                 type="text"
+                name="subject"
                 placeholder="Subject"
                 className="w-full border border-gray-300 px-4 py-3 outline-none focus:border-orange-500"
+                required
               />
 
-              {/* Message */}
               <textarea
                 rows="5"
+                name="message"
                 placeholder="Message"
                 className="w-full border border-gray-300 px-4 py-3 outline-none focus:border-orange-500"
+                required
               ></textarea>
 
-              {/* Button */}
               <button
                 type="submit"
                 className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 font-medium"
