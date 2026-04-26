@@ -5,6 +5,7 @@ import { IoChevronDown } from "react-icons/io5";
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [phoneOpen, setPhoneOpen] = useState(false);
 
   const phone = "9971507454";
   const email = "danish.malik.7503@gmail.com";
@@ -29,7 +30,7 @@ const Navbar = () => {
           <a href="/about" className="hover:text-orange-500">About Us</a>
           <a href="/service" className="hover:text-orange-500">Our Services</a>
 
-          {/* Dropdown */}
+          {/* Pages Dropdown */}
           <div className="relative">
             <button
               onClick={() => setDropdown(!dropdown)}
@@ -52,17 +53,41 @@ const Navbar = () => {
           <a href="/contact" className="hover:text-orange-500">Contact Us</a>
         </div>
 
-        {/* ✅ PHONE + EMAIL (REPLACED SOCIAL ICONS) */}
+        {/* ✅ PHONE + EMAIL */}
         <div className="hidden lg:flex items-center space-x-5 text-sm">
 
-          {/* Phone */}
-          <a
-            href={`tel:${phone}`}
-            className="flex items-center gap-2 text-gray-700 hover:text-orange-500"
-          >
-            <FaPhoneAlt />
-            {phone}
-          </a>
+          {/* Phone Dropdown */}
+          <div className="relative">
+            <div
+              onClick={() => setPhoneOpen(!phoneOpen)}
+              className="flex items-center gap-2 text-gray-700 hover:text-orange-500 cursor-pointer"
+            >
+              <FaPhoneAlt />
+              {phone}
+            </div>
+
+            {phoneOpen && (
+              <div className="absolute top-8 right-0 bg-white shadow-lg rounded w-44 z-50">
+                
+                <a
+                  href={`tel:${phone}`}
+                  className="block px-3 py-2 hover:bg-gray-100"
+                >
+                  📞 Call Now
+                </a>
+
+                <a
+                  href={`https://wa.me/91${phone}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-3 py-2 hover:bg-gray-100"
+                >
+                  💬 WhatsApp
+                </a>
+
+              </div>
+            )}
+          </div>
 
           {/* Email */}
           <a
@@ -90,7 +115,7 @@ const Navbar = () => {
           mobileMenu ? "translate-x-0" : "-translate-x-full"
         } transition duration-300 z-50`}
       >
-        {/* Close Button */}
+        {/* Header */}
         <div className="flex justify-between items-center p-4 border-b">
           <h2 className="font-bold text-lg">Menu</h2>
           <button onClick={() => setMobileMenu(false)}>
@@ -104,7 +129,7 @@ const Navbar = () => {
           <a href="/about" onClick={() => setMobileMenu(false)}>About Us</a>
           <a href="/service" onClick={() => setMobileMenu(false)}>Our Services</a>
 
-          {/* Dropdown */}
+          {/* Pages Dropdown */}
           <div>
             <button
               onClick={() => setDropdown(!dropdown)}
@@ -126,15 +151,36 @@ const Navbar = () => {
 
           <a href="/contact" onClick={() => setMobileMenu(false)}>Contact Us</a>
 
-          {/* ✅ Mobile me bhi phone + email */}
-          <div className="pt-4 border-t space-y-3 text-sm">
-            <a href={`tel:${phone}`} className="flex items-center gap-2">
+          {/* 📞 Mobile Phone Dropdown */}
+          <div className="pt-4 border-t">
+            <div
+              onClick={() => setPhoneOpen(!phoneOpen)}
+              className="flex items-center gap-2 cursor-pointer"
+            >
               <FaPhoneAlt /> {phone}
-            </a>
-            <a href={`mailto:${email}`} className="flex items-center gap-2">
-              <FaEnvelope /> {email}
-            </a>
+            </div>
+
+            {phoneOpen && (
+              <div className="mt-2 bg-gray-100 rounded">
+                <a href={`tel:${phone}`} className="block px-3 py-2">
+                  📞 Call Now
+                </a>
+                <a
+                  href={`https://wa.me/91${phone}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-3 py-2"
+                >
+                  💬 WhatsApp
+                </a>
+              </div>
+            )}
           </div>
+
+          {/* Email */}
+          <a href={`mailto:${email}`} className="flex items-center gap-2">
+            <FaEnvelope /> {email}
+          </a>
         </div>
       </div>
 
