@@ -21,7 +21,7 @@ const Navbar = () => {
             alt="logo"
             className="h-10"
           />
-          <h1 className="text-2xl font-bold text-[#0b1c39]">Expert-AC</h1>
+          <h1 className="text-2xl font-bold text-[#0b1c39]">Expert-Repair-Wala</h1>
         </div>
 
         {/* Desktop Menu */}
