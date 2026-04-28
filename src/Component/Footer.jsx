@@ -26,7 +26,7 @@ const Footer = () => {
           <div>
             <h1 className="text-white text-2xl font-bold mb-4 flex items-center gap-2">
               <img src="/img/icon/icon-02-light.png" className="w-8" alt="" />
-              Expert-AC Care
+             Expert-Repair-Wala
             </h1>
             <p className="text-sm leading-relaxed">
               We provide reliable and affordable AC repair, installation, and maintenance services.
