@@ -91,24 +91,28 @@ const About = () => {
           </motion.div>
 
           {/* RIGHT IMAGES */}
-          <div className="grid grid-cols-2 gap-3">
-            {[
-              "about-1.jpg",
-              "about-2.jpg",
-              "about-3.jpg",
-              "about-4.jpg"
-            ].map((img, i) => (
-              <motion.img
-                key={i}
-                src={`https://themewagon.github.io/aircon/img/${img}`}
-                className="w-full h-auto rounded-md object-cover"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-              />
-            ))}
-          </div>
-
+          {/* RIGHT IMAGES */}
+<div className="grid grid-cols-2 gap-3">
+  {[
+    "about-1.jpg",
+    "about-2.jpg",
+    "about-3.jpg",
+    "https://i.ibb.co/cSRnRRbk/Whats-App-Image-2026-04-28-at-10-57-00-PM.jpg" // 👈 yaha change kiya
+  ].map((img, i) => (
+    <motion.img
+      key={i}
+      src={
+        img.startsWith("http")
+          ? img
+          : `https://themewagon.github.io/aircon/img/${img}`
+      }
+      className="w-full h-auto rounded-md object-cover"
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+    />
+  ))}
+</div>
         </div>
       </div>
     </div>
