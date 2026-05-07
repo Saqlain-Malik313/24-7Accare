@@ -33,8 +33,8 @@ const Facts = () => {
 
   const data = [
     { value: 500, label: "Happy Clients" },
-    { value: 100+, label: "Projects Succeed" },
-    { value: 20+ , label: "Awards Achieved" },
+    { value: 100, label: "Projects Succeed" },
+    { value: 20, label: "Awards Achieved" },
     { value: 10, label: "Team Members" },
   ];
 
