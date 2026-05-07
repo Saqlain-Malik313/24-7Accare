@@ -32,10 +32,10 @@ const Facts = () => {
   const inView = useInView(ref, { once: true }); // 🔥 only once
 
   const data = [
-    { value: 1234, label: "Happy Clients" },
-    { value: 1234, label: "Projects Succeed" },
-    { value: 1234, label: "Awards Achieved" },
-    { value: 1234, label: "Team Members" },
+    { value: 500, label: "Happy Clients" },
+    { value: 100+, label: "Projects Succeed" },
+    { value: 20+ , label: "Awards Achieved" },
+    { value: 10, label: "Team Members" },
   ];
 
   return (
